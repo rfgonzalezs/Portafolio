@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Agregar Persona</title>
+    </head>
+    <body>
+        <h1>Agregar Persona</h1>
+        <form method="POST">
+            {{forma.csrf_token}}
+            <p>
+                {{forma.nombre.label}} <br/>
+                {{forma.nombre(size=30, value = "")}}
+            </p>
+            <p>
+                {{forma.apellido.label}} <br/>
+                {{forma.apellido(size=30, value = "")}}
+            </p>
+            <p>
+                {{forma.email.label}} <br/>
+                {{forma.email(size=30, value = "")}}
+            </p>
+            <p>
+                {{forma.enviar()}}
+            </p>
+        </form>
+        <br/>
+        <a href="{{url_for('inicio')}}">Regresar al inicio</a>
+        <!-- <a href="index">Regresar al inicio</a> -->
+    </body>
+</html>
