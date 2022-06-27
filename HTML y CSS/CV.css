@@ -1,0 +1,104 @@
+
+header{
+    padding-left: 50px;
+}
+img {
+    border: 3px solid black;
+    
+}
+body {
+    background-color: gray;
+    text-align: justify;
+    font-size: 18px; 
+    /* margin: 150px; */
+    padding-left: 350px; 
+} 
+h1 {
+    color: black;
+}
+nav {
+    width: 600px; 
+    height: 80px; 
+    background-color: goldenrod;
+    border: 3px solid black;
+    padding-left: 30px;
+    padding-top: 5px;
+    margin: 5px;
+}
+#Div1 {
+    width: 600px; 
+    height: 200px; 
+    background-color: goldenrod;
+    border: 3px solid black; 
+    padding-left: 30px;
+    margin: 5px;
+}
+#Div2 {
+    width: 600px; 
+    height: 280px; 
+    background-color: goldenrod;
+    border: 3px solid black;
+    padding-left: 30px;
+    margin: 5px;
+}
+#Div3 {
+    width: 600px; 
+    height: 350px; 
+    background-color: goldenrod;
+    border: 3px solid black;
+    padding-left: 30px;
+    margin: 5px;
+}
+#Div4 {
+    width: 600px; 
+    height: 850px; 
+    background-color: goldenrod;
+    border: 3px solid black;
+    padding-left: 30px;
+    margin: 5px;    
+}
+#Div5 {
+    width: 600px; 
+    height: 250px; 
+    background-color: goldenrod;
+    border: 3px solid black;
+    padding-left: 30px;
+    margin: 5px;
+}
+#Div6 {
+    width: 600px; 
+    height: 180px; 
+    background-color: goldenrod;
+    border: 3px solid black;
+    padding-left: 30px;
+    margin: 5px;
+}
+#Div7 {
+    width: 600px; 
+    height: 410px; 
+    background-color: goldenrod;
+    border: 3px solid black;
+    padding-left: 30px;
+    margin: 5px;    
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+#Parrafo1{
+    width: 550;   
+}
+#ListaDiv3{
+    width: 500;
+}
+#ListDiv4{
+    width: 550;
+}
+#Contact {
+    width: 600px; 
+    height: 100px; 
+    background-color: goldenrod;
+    border: 3px solid black;
+    padding-left: 30px;
+    margin: 5px;
+}
