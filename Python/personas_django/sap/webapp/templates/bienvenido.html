@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>S. A. P.</title>
+</head>
+<body>
+<h1>Bienvenidos al Sistema de Administracion de Personas (SAP)</h1>
+<div>
+    Personas en la Base de Datos: {{No_Personas}}
+</div>
+<div>
+    <a href="nueva_persona">Agregar Persona</a>
+</div>
+<div>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {%for persona in personas %}
+        <tr>
+            <td>{{persona.id}}:</td>
+            <td>{{persona.nombre}} {{persona.apellido}}</td>
+            <td>{{persona.email}}</td>
+            <td><a href="detalle_persona/{{persona.id}}">Ver</a></td>
+            <td><a href="editar_persona/{{persona.id}}">Editar</a></td>
+            <td><a href="eliminar_persona/{{persona.id}}">Eliminar</a></td>
+        </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+</div>
+<div>
+    <a href="domicilio/">Ir a Direccion Domicilio</a>
+</div>
+</body>
+</html>

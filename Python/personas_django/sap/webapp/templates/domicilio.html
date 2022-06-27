@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Direccion de Domicilio Personas</title>
+</head>
+<body>
+<h1>Domicilios</h1>
+<div>
+    Direccion de personas en la Base de Datos: {{No_domicilios}}
+</div>
+<div>
+    <a href="nuevo_domicilio">Agregar Domicilio</a>
+</div>
+<div>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Calle</th>
+            <th>No Calle</th>
+            <th>Pais</th>
+        </tr>
+        </thead>
+        <tbody>
+        {%for domicilio in domicilios %}
+        <tr>
+            <td>{{domicilio.id}}:</td>
+            <td>{{domicilio.calle}}</td>
+            <td>{{domicilio.no_calle}}</td>
+            <td>{{domicilio.pais}}</td>
+            <td><a href="detalle_domicilio/{{domicilio.id}}">Ver</a></td>
+            <td><a href="editar_domicilio/{{domicilio.id}}">Editar</a></td>
+            <td><a href="eliminar_domicilio/{{domicilio.id}}">Eliminar</a></td>
+        </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+</div>
+<div>
+    <a href="{% url 'index' %}"> Regresar al inicio</a>
+</div>
+</body>
+</html>
