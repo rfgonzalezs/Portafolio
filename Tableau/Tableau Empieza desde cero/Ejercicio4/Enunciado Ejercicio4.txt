@@ -1,0 +1,1 @@
+Diferencia de dias entre el pedido de la orden y la fecha de envio
