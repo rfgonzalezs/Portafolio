@@ -1,3 +1,8 @@
+library(dummies)
+library(MASS)
+library(caTools)
+library(class)
+
 df <- read.csv("C:/Users/Raf/Documents/R/5 Analisis Discriminante Lineal/House-Price.csv", header = TRUE)
 
 #Analisis univariado EDD
@@ -36,7 +41,6 @@ rm(df2)
 df <- df[,-13]
 
 #  Creacion variables Dummies
-library(dummies)
 df <- dummy.data.frame(df)
 df <- df[,-8]
 df <- df[,-13]
@@ -50,8 +54,6 @@ glm.fit = glm(Sold~., data=df, family=binomial)
 summary(glm.fit)
 
 # Analisis Lineal Discriminante
-# install.packages("MASS")
-library(MASS)
 lda.fit = lda(Sold~., data = df)
 lda.fit
 lda.pred = predict(lda.fit, df)
@@ -74,7 +76,6 @@ table(qda.class,df$Sold)
 sum(qda.pred$posterior[,1]>0.8)
 
 # Test-Train 
-library(caTools)
 set.seed(0)
 split = sample.split(df,SplitRatio = 0.8)
 train_set = subset(df,split == 'TRUE')
@@ -88,7 +89,6 @@ test.pred[test.probs>0.5] = 'YES'
 table(test.pred,test_set$Sold)
 
 # K-Vecinos Cercanos
-library(class)
 trainX = train_set[,-16]
 testX = test_set[,-16]
 trainy = train_set$Sold

@@ -3,7 +3,7 @@
     "path": "~/R/6 K-Vecinos Cercanos/K-Vecinos Cercanos.R",
     "project_path": "K-Vecinos Cercanos.R",
     "type": "r_source",
-    "hash": "1747828578",
+    "hash": "2013838750",
     "contents": "",
     "dirty": false,
     "created": 1655739620733.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "89,20",
-        "scrollLine": "73"
+        "cursorPosition": "3,14",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1655741596,
+    "lastKnownWriteTime": 1669392397,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1655741597011,
+    "last_content_update": 1669392397810,
     "read_only": false,
     "read_only_alternatives": []
 }
