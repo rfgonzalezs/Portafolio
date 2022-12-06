@@ -1,0 +1,60 @@
+#  Importando Librerias
+library(caTools)
+library(e1071)
+
+# Importando Datos
+movie <- read.csv('C:/Users/Raf/Documents/R/Algoritmos hechos por mi/5. Support Vector Machine SVM/Archivos csv/Movie_classification.csv')
+summary(movie)
+
+# Preprocesamiento de datos
+movie$Time_taken[is.na(movie$Time_taken)] <- mean(movie$Time_taken, na.rm = TRUE)
+summary(movie)
+
+# Test-Train Split
+set.seed(0)
+split = sample.split(movie,SplitRatio = 0.8)
+trainc = subset(movie, split == TRUE)
+testc  = subset(movie, split == FALSE)
+
+# Clasificacion Lineal
+trainc$Start_Tech_Oscar <- as.factor(trainc$Start_Tech_Oscar)
+testc$Start_Tech_Oscar  <- as.factor(testc$Start_Tech_Oscar)
+
+svmfitL = svm(Start_Tech_Oscar~., data = trainc, kernel = "linear", cost = 1, scale = TRUE)
+ypred =predict(svmfitL, testc)
+table(predict=ypred, truth=testc$Start_Tech_Oscar)
+svmfitL$index
+
+# Hiperparamtero Lineal
+set.seed(0)
+tune.outL = tune(svm, Start_Tech_Oscar~., data=trainc, kernel="linear", ranges=list(cost=c(0.001,0.01,0.1,1,10,100)))
+
+bestmodL = tune.outL$best.model
+summary(bestmodL)
+ypredL = predict(bestmodL, testc)
+table(predict=ypredL, truth=testc$Start_Tech_Oscar)
+66/(41+66)
+
+# Clasificaion Polinomial
+svmfitP = svm(Start_Tech_Oscar~., data=trainc, kernel="polynomial", cost=1, degree=2)
+
+# Hiperparametro Polinomial
+tune.outP = tune(svm, Start_Tech_Oscar~., data=trainc, cross=4, kernel="polynomial", range=list(cost=c(0.001,0.01,1,5,10), degree=c(0.5,1,2,3,4,5)))
+
+bestmodP = tune.outP$best.model
+summary(bestmodP)
+ypredP = predict(bestmodP, testc)
+table(predict=ypredP, truth=testc$Start_Tech_Oscar)
+65/108
+
+# Clasificacion Radial
+svmfitR = svm(Start_Tech_Oscar~., data=trainc, kernel="radial", cost=1, gamma=1)
+
+# Hiperparametro Radial
+tune.outR = tune(svm, Start_Tech_Oscar~., data=trainc, kernel="radial", range=list(cost=c(0.001,0.01,0.1,1,10,100,1000), gamma=c(0.01,0.1,0.5,1,3,10,50)),cross=4)
+
+bestmodR = tune.outR$best.model
+summary(bestmodR)
+ypredR = predict(bestmodR,testc)
+table(predict=ypredR, truth= testc$Start_Tech_Oscar)
+58/(58+69)
