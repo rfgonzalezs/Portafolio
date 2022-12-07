@@ -1,0 +1,27 @@
+{
+    "id": "C54A4A66",
+    "path": "~/R/Algoritmos hechos por mi/6. Analisis de una Red Neuronal ANN/6.2 Regresion de una Red Neuronal con API Funcional.R",
+    "project_path": "6.2 Regresion de una Red Neuronal con API Funcional.R",
+    "type": "r_source",
+    "hash": "307402659",
+    "contents": "",
+    "dirty": false,
+    "created": 1669758488560.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "142,24",
+        "scrollLine": "133"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1669821631,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1669821632175,
+    "read_only": false,
+    "read_only_alternatives": []
+}
