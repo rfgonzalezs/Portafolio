@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}Listado de Canciones{% endblock %}
+{% block content %}
+    <h3 class="text-center mb-4">Listado de canciones registradas</h3>
+    {% if canciones %}
+    <table class="table table-dark table-striped align-middle">
+        <thead>
+            <tr class="text-success">
+                <th>ID</th>
+                <th>Título</th>
+                <th>Artista</th>
+                <th>Popularidad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cancion in canciones %}
+                <tr>
+                    <td>{{ cancion.id }}</td>
+                    <td>{{ cancion.titulo }}</td>
+                    <td>{{ cancion.artista }}</td>
+                    <td>{{ cancion.popularidad }}</td>
+                    <td>
+                        <a href="{% url 'editar_cancion' cancion.id %}" class="btn btn-warning btn-sm">Editar</a>
+                <!-- Botón que abre el modal -->
+                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalEliminar{{ cancion.id }}">
+                    Eliminar
+                </button>
+                <!-- Modal de confirmación -->
+                <div class="modal fade" id="modalEliminar{{ cancion.id }}" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content bg-dark text-white">
+                            <div class="modal-header border-secondary">
+                                <h5 class="modal-title text-danger">Confirmar eliminación</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                ¿Estás seguro de que deseas eliminar la canción
+                                <strong class="text-success">{{ cancion.titulo }}</strong>?
+                            </div>
+                            <div class="modal-footer border-secondary">
+                                <form method="post" action="{% url 'eliminar_cancion' cancion.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <div class="alert alert-secondary text-center">
+            No hay canciones registradas aún.
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}{{ accion }}{% endblock %}
+
+{% block content %}
+    <h2 class="text-center text-success mb-4">{{ accion }}</h2>
+    <form method="post" class="mx-auto" style="max-width: 500px;">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="text-center mt-3">
+            <button type="submit" class="btn btn-success">
+                {% if accion == 'Editar Canción' %}Actualizar{% else %}Guardar{% endif %}
+            </button>
+            <a href="{% url 'index' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+{% endblock %}
